@@ -1,0 +1,1605 @@
+/*
+	ornyx.ca
+	© 2010–2011 · Patrick Loranger
+
+	You may take and use elements of this stylesheet and any imported files.
+	But the unique combination of layout, font styles, colours and etc. is copyrighted.
+	You may not use any of the graphical elements on this site.
+
+	Last Updated: August 20, 2011
+
+	Limelight Version: 0.2 (tailored)
+	CC-BY3 · Chauncey McAskill <hello@chauncey.me>
+
+	Colors:
+		Text
+			BODY:		Grey Green	#1B1F1C	(27,31,28)
+			#footer:	Green		#1A6A32	(26,106,50)
+			A:link/visited	Brown		#A66432	(166,100,50)
+			A:focus/hover	Darker Brown	#653D1E	(101,61,30)
+			A:active	Darker Brown	#000	(0,0,0)
+
+		Backgrounds
+			HTML:		Light Green	#8DE5A9	(141,229,169)
+
+	Font Stack:
+
+		* Text			'Lucida Grande', Lucida, Verdana, 'Liberation Sans', FreeSans, sans-serif
+		* Titles		Palatino, 'Palatino Linotype', Georgia, Baskerville, serif
+
+	Table of Contents:
+
+		1. Limelight
+			1.1. Document
+			1.2. Forms
+			1.3. Tables
+			1.4. Typography
+				1.4.1. Miscellaneous
+				1.4.2. Headers
+				1.4.3. Anchors
+				1.4.4. Lists
+				1.4.5. Monospaced
+				1.4.6. Sub/Super
+				1.4.7. Emphasis
+			1.5. Accessibility
+			1.6. Disable Deprecated HTML
+			1.7. Supplementals
+			1.8. Alignment
+				1.8.1. Clearing
+				1.8.2. Floating
+				1.8.3. Aligning
+				1.8.4. Fixing
+		2. Basics
+			2.1. Common Anchors
+			2.2. Miscellaneous
+		3. Stubs
+			3.1. Masthead
+			3.2. Footer
+			3.3. Header
+			3.4. Navigation
+				3.4.1. By Sections
+				3.4.2. By Tomes (Chakras)
+			3.5. Introduction
+		4. Pages
+			4.1. Home
+				4.1.1. Feature
+				4.1.2. Cover
+				4.1.3. Purchase
+				4.1.4. Buzz
+				4.1.5. Author
+			4.2. Characters
+			4.3. Characters
+			4.4. Characters
+		5. Typography
+
+*/
+
+/* ###############################################
+   1. Limelight
+   ###############################################
+
+   For commodity
+
+*/
+
+/* 1.1. Document
+   ############################################### */
+
+	html {
+		overflow-y:	scroll;
+		font-size:	100%;
+	}
+
+
+/* Default font size for ‘medium’ in all modern
+ * browsers is 16px. Let's reduce the default size
+ * to 62.5% of 16px. This takes the default size
+ * down to 10px, which is a nice round number for
+ * creating and managing CSS rules easy.
+ *
+ *	62.5% × 16px = 10px
+ *
+ *	To prevent ‘inherited shrinkage/growing’
+ *	1em = Parent em
+ *
+ *	Child Pixels / Parent Pixels = Child EMs
+ *	 12px / 10px = 1.2em
+ *	 10px / 12px = 0.8333em
+ *	 20px / 12px = 1.6666em
+ *	 20px / 10px = 2em
+ * <clagnut.com/blog/348/>
+ */
+	body {
+		/* Don't you just hate page nudges
+		 * when a vertical scrollbar shows up.
+		 */
+		margin:		0;
+		font-size:	62.5%; /* Set: font-size = 10px */
+		line-height:	1.7;
+		text-rendering:	optimizeLegibility;
+	}
+
+
+/* These selection declarations have to be separate.
+ * No text-shadow for O.C. text highlighters.
+ * <twitter.com/miketaylr/status/12228805301>
+ */
+	/* Separate rule for Firefox.
+	 * Cannot stack with WebKit's.
+	 */
+	::-moz-selection	{ color: #222; background: #fff; text-shadow: none; }
+	::selection		{ color: #222; background: #fff; text-shadow: none; }
+
+
+/* Text meant only for screen readers
+ * Allow screen-readers/text-browsers
+ * to skip the navigation menu and get
+ * right to the good stuff.
+ */
+	.screen-reader-text,
+	#accessibility {
+		position:	absolute;
+		left:		-9000px;
+		font-size:	1px;
+	}
+
+
+/* Remove Button Focus Outline Using CSS
+ * Mozilla uses -moz-focus-inner on form elements.
+ * <karlrixon.co.uk/articles/css/remove-button-focus-outline-using-css/>
+ */
+	:focus, object, embed { outline: 0 none; -moz-outline: 0 none; }
+	::-moz-focus-inner { border: 0; }
+
+
+/* IE uses color to manage the divider's color.
+ * Standards-compliant browsers use background.
+ */
+	hr {
+		clear:		both;
+		color:		#E4F3E6;
+		width:		45%;
+		height:		1px;
+		margin:		4em auto;
+		border:		0;
+		border-top:	1px solid #26743D;
+		background:	#E4F3E6;
+		}
+		hr.header { margin-top: 2em; }
+
+
+
+/* 1.2. Forms
+   ###############################################
+
+   Taken from Formalize (2011-02-03) by Nathan Smith
+   <https://github.com/nathansmith/formalize/>
+
+*/
+
+	input, textarea, keygen, select, button, isindex, datagrid {
+		font: inherit;
+		line-height: inherit;
+	}
+
+	input[type='search']::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+
+	input,
+	button,
+	select,
+	textarea {
+		margin: -0.25em 0 0 0; /* Nudge form fields up to line up with text */
+		vertical-align: middle;
+	}
+
+	button,
+	input[type='reset'],
+	input[type='submit'],
+	input[type='button'] {
+		outline:	0;
+		cursor:		pointer;
+		overflow:	visible;
+		width:		auto;
+	}
+
+/*
+	button[disabled],
+	input[type='reset'][disabled],
+	input[type='submit'][disabled],
+	input[type='button'][disabled] {
+		color: #888;
+	}
+*/
+
+	textarea,
+	select,
+	input[type='date'],
+	input[type='datetime'],
+	input[type='datetime-local'],
+	input[type='email'],
+	input[type='month'],
+	input[type='number'],
+	input[type='password'],
+	input[type='search'],
+	input[type='tel'],
+	input[type='text'],
+	input[type='time'],
+	input[type='url'],
+	input[type='week'] {
+		outline:	0;
+	}
+
+	input.placeholder,
+	textarea.placeholder		{ color: #888; }
+
+	/*
+		Separate rule for Firefox.
+		Cannot stack with WebKit's.
+	*/
+	::-moz-placeholder		{ color: #888; }
+	::-webkit-input-placeholder	{ color: #888; }
+	::input-placeholder		{ color: #888; }
+	::placeholder			{ color: #888; }
+
+	select {
+		cursor: pointer;
+	}
+
+	textarea,
+	select[multiple] {
+		height: auto;
+	}
+
+	textarea {
+		min-height: 40px;
+		overflow: auto;
+		resize: vertical;
+		width: 100%;
+	}
+
+
+
+/* 1.3. Tables
+   ###############################################
+
+   Note that border-collapse:collapse produces
+   a completely different visual effect than
+   cellspacing="0"; the two methods are not
+   actually equivalent or interchangeable
+   in any meaningful
+
+*/
+
+/* Tables still need 'cellspacing="0"' in the markup.
+ * <meyerweb.com/eric/tools/css/reset/>
+ */
+	table {
+		width:			50%;
+		margin:			1em 0;
+		border-collapse:	collapse;
+		border-spacing:		0;
+		font-size:		1.1em;
+	}
+	/* As for cellpadding, you can do */
+	table tr td, table tr th { padding: 0; }
+
+	table[border] {
+		border-collapse: separate;
+		border-spacing: 0.5em;
+	}
+	table[border] td, table th[border] { padding: 0.5em; }
+
+
+
+/* 1.4. Typography
+   ############################################### */
+
+/* 1.4.1. Miscellaneous ########################## */
+
+	/* De-italicize address */
+	address { font-style:normal }
+
+	blockquote {
+		margin: 0;
+	}
+
+
+/* 1.4.2. Headers ################################ */
+
+	h1, h2, h3, h4, h5, h6 {
+		clear:		both;
+		color:		#1A6A32;
+		font-weight:	bold;
+		font-family:	Palatino, 'Palatino Linotype', Georgia, Baskerville, serif;
+		line-height:	1;
+	}
+
+	h1.wrap, h2.wrap, h3.wrap, h4.wrap, h5.wrap, h6.wrap {
+		text-align: center;
+	}
+
+	h1 {
+		color:		#000;
+		font-size:	4em;
+	}
+	h2 {
+		font-size: 1.7em;
+	}
+	h3 {
+		font-size:	1.5em;
+		text-transform:	uppercase;
+	}
+	h4 {
+		font-size:	1.4em;
+		text-transform:	uppercase;
+	}
+	h5 {
+		font-size:	1.3em;
+		font-weight:	normal;
+	}
+	h6 {
+		font-size:	1.1em;
+		font-weight:	normal;
+	}
+
+
+
+/* 1.4.3. Anchors ################################
+
+   Anchor links must always be organized in this order.
+   This prevents :visited from overpowering :focus and :hover
+
+*/
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		border-bottom: 0px solid #fff;
+
+		-webkit-transition: color .2s linear, border-bottom .2s linear;
+		   -moz-transition: color .2s linear, border-bottom .2s linear;
+		    -ms-transition: color .2s linear, border-bottom .2s linear;
+		     -o-transition: color .2s linear, border-bottom .2s linear;
+		        transition: color .2s linear, border-bottom .2s linear;
+	}
+
+	a:link,
+	a:visited {
+		color: #A66432;
+		border-color: #A66432;
+	}
+
+	a:focus,
+	a:hover {
+		color: #653D1E;
+		border-color: #653D1E;
+	}
+
+	a:active {
+		position: relative;
+		top: 1px;
+		color: #000;
+		border-color: #000;
+	}
+
+	a[name]:hover {
+		border: 0;
+		text-decoration: none;
+	}
+
+
+/* Whoever thought blue linked image
+ * borders were a good idea?
+ */
+	a img,
+	a:link img,
+	a:visited img { border: 0; }
+
+
+
+/* 1.4.4. Lists ################################## */
+
+	ul, ol { padding-left: 2.5em; }
+
+	li {
+	/* For IE6 + IE7. */
+		display: list-item;
+	}
+
+
+
+/* 1.4.5. Monospaced ############################# */
+
+	code, kbd, samp, var {
+		font-family: Monaco, Consolas, 'Courier New', Courier, monospace, Menlo, sans-serif;
+	}
+
+	pre {
+		font-family: Menlo, monospace, sans-serif;
+	}
+
+
+
+/* 1.4.6. Sub/Super ##############################
+
+   When using vertical-align:sub/super will usually
+   influence the text above and below it, this will
+   break line-height.
+   Adjusting line-height is the ideal alternative
+   but I prefer to make sure things don't mess up.
+
+*/
+	sup, sub {
+		position: relative;
+		font-size: 80%; /* Default: Smaller */
+		vertical-align: inherit;
+		}
+		sup { top: -5px; /* vertical-align: super; Natural */ }
+		sub { bottom: -5px; /* vertical-align: sub; Natural */ }
+
+
+
+/* 1.4.7. Emphasis ############################### */
+
+	small { font-size: 80%; /* Default: Smaller */ }
+	big   { font-size: 120%; /* Default: Larger */ line-height:80%; }
+
+	b, strong {
+	/* Makes browsers agree.
+	 * IE + Opera = font-weight: bold.
+	 * Gecko + WebKit = font-weight: bolder.
+	 */
+		font-weight: bold;
+	}
+	i, em     { font-style: italic; /* ~Natural (Exception: IE doesn't italicize EM) */ }
+
+	del	{ /* text-decoration: line-through; Natural */ }
+	ins	{ /* text-decoration: underline; Natural */ }
+	mark	{ /* text-decoration: underline; Natural */ }
+
+
+
+/* 1.5. Accessibility
+   ############################################### */
+
+/*
+   ACRONYM:
+	A word formed from the initial parts of a name,
+	such as NATO, from North Atlantic Treaty Organisation,
+	or Commintern, from Communist International.
+
+   INITIALISM:
+	An abbreviation consisting of the initial
+	letter of each word in a phrase; distinguishable from
+	an acronym in that it is not pronounced as a single word;
+	for example B.B.C., C.I.A.
+
+   TRUNCATION:
+	An abbreviation consisting of a word that is
+	cut short; similar to an acronym but it is not composed
+	of initials; for example Eur, for Europe.
+
+*/
+
+	abbr[title], acronym[title], dfn[title] {
+		cursor: help;
+		/* border-bottom: 1px solid #000; */
+		border-color: rgba(0,0,0,.2);
+		text-decoration: none;
+	}
+
+	acronym 	{ speak: normal; }
+	abbr.initialism	{ speak: spell-out; text-transform: uppercase; }
+	abbr.truncation	{ speak: normal; }
+
+
+/* 1.6. Disable Deprecated HTML
+   ############################################### */
+
+	font, basefont, plaintext, listing, xmp, tt {
+		color: inherit;
+		font: inherit;
+		font-size: 100%;
+	}
+
+	plaintext, listing, xmp {
+		white-space:inherit;
+		display:inline;
+		margin:0;
+	}
+
+	center/*, *[align]*/ { text-align: inherit; }
+
+	s, strike, u { text-decoration: inherit; }
+
+	nobr { white-space: normal; }
+
+	marquee {
+		overflow: visible;
+		-moz-binding: none;
+	}
+
+	blink { text-decoration: none; }
+
+
+/* 1.7. Supplementals
+   ############################################### */
+
+	.hide,
+	html.js .hide-if-js, .hide-if-no-js	{ display:none; }
+	html.js .hide-if-no-js			{ display:block; }
+	html.js li.hide-if-no-js		{ display:list-item; }
+	html.js span.hide-if-no-js		{ display:inline; }
+
+
+/* 1.8. Alignment
+   ############################################### */
+
+/* 1.8.1. Clearing ############################### */
+
+	.c,
+	.clear		{ clear: both; }
+
+	.cl,
+	br.left,
+	hr.left,
+	.clear-left	{ clear: left; }
+
+	.cr
+	br.right,
+	hr.right,
+	.clear-right	{ clear: right; }
+
+
+/* 1.8.2. Floating ############################### */
+
+	.fl,
+	.float-left,
+	figure.left,
+	div.left,
+	img.left	{ float: left; }
+
+	.fr,
+	.float-right,
+	figure.right,
+	div.right,
+	img.right	{ float: right; }
+
+
+/* 1.8.3. Aligning ############################### */
+
+	.centered	{
+		margin-left:	auto;
+		margin-right:	auto;
+	}
+	img.centered	{ display: block; }
+
+	.text-left,
+	p.left		{ text-align: left; }
+
+	.text-right,
+	p.right		{ text-align: right; }
+
+	.text-center,
+	p.center	{ text-align: center; }
+
+	.text-justify,
+	p.justify	{ text-align: justify; }
+
+
+/* 1.8.4. Fixing #################################
+ * <pathf.com/blogs/2007/09/developers-note-2/>
+ */
+
+	/* Float clearing for everyone else */
+	.cf:after,
+	.clearfix:after,
+
+	h4:after,
+	.feature:after,
+	.purchase:after,
+	#masthead:after,
+	#buzz:after {
+		visibility:	hidden;
+		display:	block;
+		clear:		both;
+		height:		0;
+		font-size:	0;
+		content:	" ";
+	}
+
+	/* Float clearing for IE6–7 */
+	.cf,
+	.clearfix,
+
+	h4,
+	.feature,
+	.purchase,
+	#masthead,
+	#buzz {
+		zoom: 1;
+	}
+
+
+
+/* ###############################################
+   2. Basics
+   ############################################### */
+
+	html {
+		background:	#8DE5A9 url(../images/html.jpg) fixed 50% 0;
+	}
+
+	body {
+		color:		#1B1F1C;
+		font-family:	'Lucida Grande', Lucida, Verdana, 'Liberation Sans', FreeSans, sans-serif;
+		background:	url(../images/body.png) no-repeat 50% -100px fixed;
+		}
+		body#page-geographie	{ background-image: url(../images/body-map.png); }
+		body#page-personnages	{ background-image: url(../images/body-tree.png); }
+
+	#page {
+		padding-top:	150px;
+		background:	url(../images/page.png) no-repeat 50% -150px;
+	}
+
+
+
+/* 3.1. Common Anchors
+   ############################################### */
+
+	.content a,
+	.purchase a {
+		border-bottom-width: 1px;
+	}
+
+
+/* 3.2. Miscellaneous
+   ############################################### */
+
+	#share {
+		position:	fixed;
+		bottom:		10px;
+		right:		10px;
+	}
+
+	.section, .wrap {
+		width:		600px;
+		margin:		0 auto;
+	}
+
+	.col-1,
+	.col-2,
+	.col-3 {
+		float: left;
+		width:	174px;
+	}
+
+	.col-2 {
+		padding:	0 12px;
+		margin:		0 12px;
+		border:		1px dotted #1B1F1C;
+		border-width:	0 1px;
+	}
+
+	.span-2 {
+		float:		left;
+		width:		348px;
+		padding:	0 12px 0 0;
+		margin:		0 12px 0 0;
+		border-right:	1px dotted #1B1F1C;
+	}
+
+	.span-3 {
+		width:		100%;
+		margin-bottom:	1em;
+	}
+
+	.deco-left { margin-right:0.3em; }
+	.deco-right { margin-left:0.3em; }
+
+
+
+/* ###############################################
+   3. Stubs
+   ############################################### */
+
+/* 3.1. Masthead
+   ############################################### */
+
+	#masthead {}
+
+	#masthead p { margin: 0; }
+
+	#soulieres {
+		z-index:	1;
+		position:	absolute;
+		top:		0;
+		left:		20px;
+		display:	block;
+		height:		125px;
+		width:		74px;
+		text-indent:	-999em;
+		background:	url(../images/soulieres.png) no-repeat 0 -2px;
+		}
+		#soulieres:focus,
+		#soulieres:hover {
+			background-position: 0 0;
+		}
+		#soulieres:active {
+			position: static;
+			top: 0;
+			background-position: 0 -1px;
+		}
+
+	#technotron {
+		position:	absolute;
+		top:		10px;
+		right:		20px;
+		display:	block;
+		height:		67px;
+		width:		85px;
+		text-indent:	-999em;
+		background:	url(../images/technotron.png) 0 0;
+		}
+		#technotron:focus,
+		#technotron:hover,
+		#technotron:active {
+			top: 12px;
+		}
+
+
+
+/* 3.2. Footer
+   ############################################### */
+
+	#footer {
+		width:		600px;
+		margin:		0 auto;
+		padding:	4em 0 6em;
+		color:		#1A6A32;
+	}
+
+	#footer p {
+		margin: 0;
+	}
+
+	#footer p.big {
+		font-size: 1.2em;
+		margin-bottom: 0.5em;
+	}
+
+	#footer p.copyright {
+		margin-top: 1em;
+	}
+
+	#footer a:link,
+	#footer a:visited {
+		color: #1B1F1C;
+		border-bottom: 1px dotted #1B1F1C;
+	}
+	#footer a:focus,
+	#footer a:hover {
+		color: #A66432;
+		border-bottom-style: solid;
+		border-bottom-color: #A66432;
+	}
+	#footer a:active {
+		color: #fff;
+		border-bottom-color: #fff;
+	}
+
+
+
+/* 3.3. Header
+   ############################################### */
+
+	#header {
+		width:	600px;
+		margin:	0 auto;
+	}
+
+	#byline {
+		height: 1px;
+		margin: 0;
+		text-indent: -999em;
+	}
+
+	#tagline {
+		margin:		1em 3em 2em;
+		font-size:	2.3em;
+		font-style:	italic;
+		font-weight:	900;
+		font-family:	Palatino, 'Palatino Linotype', Georgia, serif;
+		line-height:	1.2;
+		text-align:	center;
+		text-shadow:	0 1px 0 #C8F3D8;
+	}
+
+	h1 { text-indent: -999em; }
+
+		h1, h1 a {
+			height:		92px;
+			width:		600px;
+		}
+		h1 a {
+			display:	block;
+			background:	url(../images/logo.png) no-repeat;
+		}
+		h1 a:focus,
+		h1 a:hover,
+		h1 a:active {
+			background-position: 0 -92px;
+		}
+
+
+
+/* 3.4. Navigation
+   ############################################### */
+
+/* 3.4.1. By Sections ############################ */
+
+	.navigation {
+		z-index:	10;
+		position:	relative;
+		list-style:	none;
+		width:		600px;
+		padding:	0;
+		margin:		1em auto;
+
+		font-size:	2em;
+		font-family:	Palatino, 'Palatino Linotype', Georgia, Baskerville, serif;
+		font-style:	italic;
+		font-weight:	900;
+		text-shadow:	0 0 10px #fff;
+		text-align:	center;
+	}
+
+	.tome .navigation {
+		font-size:	1.4em;
+	}
+
+	.navigation li {
+		display:	inline;
+	}
+
+	.navigation a {
+		margin:		0 2em;
+	}
+
+	/* We don't need these pages for now.
+	 */
+	body.tome-3 .link-personnages,
+	body.tome-3 .link-geographie { display:none; }
+
+	#page-accueil     .link-accueil,
+	#page-personnages .link-personnages,
+	#page-geographie  .link-geographie,
+
+	.navigation a:active {
+		color: #000;
+	}
+
+
+
+/* 3.4.2. By Tomes (Chakras) ##################### */
+
+	.chakra {
+		opacity:		0.5;
+		display:		-moz-inline-box;
+		display:		inline-block;
+		width:			90px;
+		padding:		30px 0;
+		background-position:	50% 50%;
+		background-repeat:	no-repeat;
+		color:			#A66432;
+		line-height:		30px;
+		-moz-box-orient:	vertical;
+		-moz-box-align:		center;
+		}
+
+		a.chakra { color:	#000; }
+
+		body.tome-1 #muladhara,
+		body.tome-2 #swadhisthana,
+		body.tome-3 #manipura,
+		a.chakra.current,
+		a.chakra:hover {
+			opacity:	1;
+		}
+
+		html.no-opacity body.tome-1 #muladhara,		#muladhara	{ background-image: url(../images/chakra-muladhara.png); }
+		html.no-opacity body.tome-2 #swadhisthana,	#swadhisthana	{ background-image: url(../images/chakra-swadhisthana.png); }
+		html.no-opacity body.tome-3 #manipura,		#manipura	{ background-image: url(../images/chakra-manipura.png); }
+
+		html.no-opacity #muladhara	{ background-image: url(../images/chakra-muladhara.alt.png); }
+		html.no-opacity #swadhisthana	{ background-image: url(../images/chakra-swadhisthana.alt.png); }
+		html.no-opacity #manipura	{ background-image: url(../images/chakra-manipura.alt.png); }
+
+
+/* 3.5. Introduction
+   ############################################### */
+
+	#intro {
+		font-size:	1.3em;
+		text-shadow:	0 1px 0 #C8F3D8;
+
+		-webkit-column-count:	2;
+		   -moz-column-count:	2;
+		        column-count:	2;
+
+		-webkit-column-gap:	1.5em;
+		   -moz-column-gap:	1.5em;
+		        column-gap:	1.5em;
+	}
+
+
+/* ###############################################
+   4. Pages
+   ############################################### */
+
+	html.js .wrap {
+		position: relative;
+	}
+
+	html.fx .tome {
+		position:	absolute;
+		top:		0;
+		left:		0;
+	}
+
+	html.js .tome,
+	body#page-accueil .link-accueil,
+	body#page-accueil #tomes,
+	body#page-geographie .tome,
+	body#page-personnages .tome {
+		display: none;
+	}
+
+
+	html.js body#page-accueil .link-accueil {
+		display: inline;
+	}
+
+	html.js body.tome-1 #tome-1,
+	html.js body.tome-2 #tome-2,
+	html.js body.tome-3 #tome-3,
+
+	html.js body#page-accueil #tomes,
+
+	body#page-personnages.tome-1 #tome-1,
+	body#page-personnages.tome-2 #tome-2,
+	body#page-personnages.tome-3 #tome-3,
+
+	body#page-geographie.tome-1 #tome-1,
+	body#page-geographie.tome-2 #tome-2,
+	body#page-geographie.tome-3 #tome-3,
+
+	html.js body#page-geographie.tome-3 #tome-2,
+	html.js body#page-geographie.tome-3 .map-points {
+		display: block;
+	}
+
+	html.js body#page-geographie.tome-3 #tome-3,
+	body#page-personnages #manipura,
+	body#page-geographie #manipura,
+	body#page-accueil #tome-3 .navigation {
+		display: none;
+	}
+
+
+
+/* 4.1. Home
+   ############################################### */
+
+/* 4.1.1. Feature ################################ */
+
+	.feature {
+		padding-top:	2em;
+		font-size:	1.3em;
+		line-height:	1.6;
+		text-shadow:	0 1px 0 #C8F3D8;
+		}
+
+		.feature .col-1 { width: 290px; }
+
+		.feature h2 {
+			width:		800px;
+			margin:		1em -100px;
+
+			color:		#1A6A32;
+			font-style:	italic;
+			text-align:	center;
+			}
+			.feature h2 em {
+				color: #1B1F1C;
+			}
+
+		#tome-3 .feature p { line-height:1.7; }
+
+
+
+/* 4.1.2. Cover ################################## */
+
+	.cover {
+		position:	relative;
+		display:	block;
+		width:		265px;
+		margin:		0.3em 0 0.3em 0.3em;
+
+		-webkit-box-shadow:	0 0 5px #1A6A32;
+		   -moz-box-shadow:	0 0 5px #1A6A32;
+		        box-shadow:	0 0 5px #1A6A32;
+		}
+		a.cover,
+		a.cover:link,
+		a.cover:visited {
+			-webkit-box-shadow:	0 0 5px #A66432;
+			   -moz-box-shadow:	0 0 5px #A66432;
+			        box-shadow:	0 0 5px #A66432;
+		}
+		a.cover:focus,
+		a.cover:hover,
+		a.cover:active {
+			border-bottom:		0;
+			-webkit-box-shadow:	0 0 5px #fff;
+			   -moz-box-shadow:	0 0 5px #fff;
+			        box-shadow:	0 0 5px #fff;
+		}
+
+		html.no-boxshadow .cover,
+		html.no-boxshadow .purchase,
+		html.no-boxshadow #buzz {
+			border:	1px solid #2BAE52;
+		}
+
+		html.no-boxshadow a.cover,
+		html.no-boxshadow a:link.cover,
+		html.no-boxshadow a:visited.cover {
+			border:	1px solid #1A6A32;
+		}
+
+		html.no-boxshadow a:focus.cover,
+		html.no-boxshadow a:hover.cover,
+		html.no-boxshadow a:active.cover {
+			border:	1px solid #fff;
+		}
+
+		a.cover img { display:block; }
+
+		a.cover p.launch {
+			display:	none;
+			position:	absolute;
+			top:		50%;
+			left:		50%;
+			width:		230px;
+			padding:	10px;
+			margin:		-25px 0 0 -125px;
+			color:		#fff;
+			font-size:	1.1em;
+			text-shadow:	none;
+			text-align:	center;
+
+			background:	#000;
+			background:	rgb(0,0,0);
+			background:	rgba(0,0,0,0.8);
+
+			-webkit-border-radius:	6px;
+			-moz-border-radius:	6px;
+			border-radius:		6px;
+
+			-webkit-box-shadow:	0 0 5px #fff;
+			-moz-box-shadow:	0 0 5px #fff;
+			box-shadow:		0 0 5px #fff;
+			}
+			a.cover:focus p.launch,
+			a.cover:hover p.launch,
+			a.cover:active p.launch { display:block; }
+
+
+
+/* 4.1.3. Purchase ############################### */
+
+	.purchase {
+		clear:		both;
+		width:		570px;
+		padding:	1.2em 15px 1em;
+		margin:		1em auto 0;
+
+		background:	#fff;
+		background:	rgba(255,255,255,0.8);
+
+		font-size:	1.3em;
+		line-height:	1.5;
+
+		-webkit-border-radius:	6px;
+		   -moz-border-radius:	6px;
+		        border-radius:	6px;
+
+		-webkit-box-shadow:	0 1px 5px #1A6A32;
+		   -moz-box-shadow:	0 1px 5px #1A6A32;
+		        box-shadow:	0 1px 5px #1A6A32;
+		}
+		.purchase .col-3 {
+			width: 190px;
+		}
+
+		.purchase h4 {
+			margin:		0;
+			text-align:	left;
+		}
+
+		.purchase p {
+			margin:		1em 0 0;
+		}
+
+
+
+/* 4.1.4. Buzz ################################### */
+
+	#buzz {
+		width:		570px;
+		padding:	1.2em 15px 1em;
+		margin:		2em auto 1em;
+		background:	#ADEBC1;
+		background:	rgba(255,255,255,0.3);
+
+		font-size:	1.2em;
+		text-shadow:	0 1px 0 #C8F3D8;
+
+		-webkit-border-radius:	6px;
+		   -moz-border-radius:	6px;
+		        border-radius:	6px;
+
+		-webkit-box-shadow:	0 1px 5px #1A6A32;
+		   -moz-box-shadow:	0 1px 5px #1A6A32;
+		        box-shadow:	0 1px 5px #1A6A32;
+		}
+
+		#buzz h4 { margin: 0; }
+
+		#buzz p { margin: 0.5em 0; }
+
+		#buzz blockquote {
+			margin-top:	1em;
+			font-size:	0.9em;
+			line-height:	1.4;
+		}
+
+		#buzz cite { color: #1A6A32; }
+
+
+
+/* 4.1.5. Author ################################# */
+
+	#author {
+		width:		600px;
+		margin:		3em auto 0;
+		font-size:	1.2em;
+		text-shadow:	0 1px 0 #C8F3D8;
+		}
+
+		#author img {
+			float:	right;
+			margin:	0 0 0 1.5em;
+
+			-webkit-border-radius:	6px;
+			   -moz-border-radius:	6px;
+			        border-radius:	6px;
+
+			-webkit-box-shadow:	0 1px 5px #1A6A32;
+			   -moz-box-shadow:	0 1px 5px #1A6A32;
+			        box-shadow:	0 1px 5px #1A6A32;
+		}
+
+		html.no-boxshadow #author img {
+			margin:		0 0 0 1.2em;
+			padding:	5px;
+			background:	url(../images/patrick.bg.png) no-repeat;
+		}
+
+
+/* 4.1.6. Invitation ############################# */
+
+	#invitation {
+		width:		592px;
+	}
+
+	html.js #invitation {
+		z-index:	200;
+		display:	none;
+		position:	absolute;
+		top:		0;
+		right:		0;
+		width:		277px;
+	}
+
+	html.js #invitation .inner {
+		position:	relative;
+		height:		401px;
+	}
+
+	#invitation h5 {
+		margin:		0;
+		font-size:	1.5em;
+		font-weight:	bold;
+		padding-left:	10px;
+	}
+
+	#invitation p {
+		font-size:	1.2em;
+	}
+
+	#invitation p.title {
+		font-size:	1.6em;
+		font-family:	Palatino, 'Palatino Linotype', Georgia, Baskerville, serif;
+		line-height:	1;
+		text-align:	center;
+	}
+
+	#invitation address {
+		padding-bottom:	12px;
+		font-size:	1.2em;
+		text-align:	center;
+	}
+
+	#invitation a {
+		border-bottom-width: 1px;
+		}
+		#invitation a:link,
+		#invitation a:visited {
+			color: #000;
+		}
+		#invitation a:focus,
+		#invitation a:hover {
+			color: #1A6A32;
+			border-color: #1A6A32;
+		}
+		#invitation a:active {
+			color: #000;
+			border-color: #000;
+		}
+
+	#invitation a.close {
+		display:	none;
+		border:		0;
+		}
+		html.js #invitation a.close {
+			position:	absolute;
+			top:		6px;
+			right:		6px;
+			display:	block;
+			height:		26px;
+			width:		26px;
+			text-indent:	-9999em;
+			background-repeat: no-repeat;
+			background-image: url(../images/close.png);
+			}
+			#invitation a.close:link,
+			#invitation a.close:visited {
+				background-position: 0 0;
+			}
+			#invitation a.close:focus,
+			#invitation a.close:hover,
+			#invitation a.close:active {
+				background-position: 0 -26px;
+			}
+
+
+
+/* 4.2. Characters
+   ############################################### */
+
+	#tree {
+		position:	relative;
+		color:		#ccc;
+		font-size:	1.5em;
+		font-family:	Palatino, 'Palatino Linotype', Georgia, Baskerville, serif;
+		font-style:	italic;
+		font-weight:	bold;
+		line-height:	1;
+		text-align:	center;
+		text-shadow:	1px 1px 3px #000, -1px -1px 3px #000;
+		}
+
+		body.tome-1 #tree { height:878px; width:880px; margin-top: -60px; }
+		body.tome-2 #tree { height:855px; width:854px; margin-top: -20px; margin-bottom: -60px; }
+
+		.character-points .mark {
+			z-index:	100;
+			display:	none;
+			cursor:		default;
+			position:	absolute;
+			filter:		Shadow(color='black', Direction=180, Strength=2);
+			line-height:	1.2;
+			}
+			html.js .character-points .mark {
+				cursor: pointer;
+			}
+
+			.character-points .mark.tome-0,
+			body.tome-1 .character-points .mark.tome-1,
+			body.tome-2 .character-points .mark.tome-2,
+			body.tome-3 .character-points .mark.tome-3 { display:block; }
+
+			/* Tome 1 + Tome 2 + Tome 3 */
+			#markOrdreDesOrnyx	{ height:64px; width:64px; text-indent:-9999em; }
+			#markSauramis		{ top:495px; left:420px; font-size: 1.5em; color: #fff; }
+
+			/* Tome 1 */
+			body.tome-1 #markOrdreDesOrnyx	{ top:414px; left:410px; }
+
+			#markTwelgs		{ top:830px; left:135px; width:100px; color: #eee; }
+			#markZhorus1		{ top:715px; left:135px; font-size: 1.5em; color: #eee; }
+			#markFrankTetreault	{ top:200px; left:-5px;  font-size: 1.2em; color: #eee; }
+			#markStephaneLambert	{ top:660px; left:805px; font-size: 1.3em; color: #eee; }
+			#markLucTheriault	{ top:80px;  left:715px; font-size: 1.2em; color: #eee; width:140px; }
+			#markKatherineTheriault	{ top:150px; left:530px; }
+			#markJudithLapierre	{ top:300px; left:120px; }
+			#markJoseeIsabelle	{ top:195px; left:345px; }
+			#markPico		{ top:360px; left:297px; font-size: 1.2em; }
+			#markFriedrich		{ top:530px; left:510px; font-size: 1.2em; }
+			#markRheos		{ top:320px; left:520px; font-size: 1.2em; }
+			#markJerryLaFouine	{ top:380px; left:625px; font-size: 1.3em; width:160px; }
+			#markJustinBernard	{ top:610px; left:450px; font-size: 1.3em; }
+			#markMamanPaterson	{ top:365px; left:160px; width:90px; }
+			#markDanielPaterson	{ top:475px; left:200px; }
+			#markNathanPaterson	{ top:260px; left:240px; }
+			#markMicPaterson	{ top:385px; left:350px; font-size: 1.7em; color: #fff; width:160px; }
+
+			/* Tome 2 */
+			body.tome-2 #markOrdreDesOrnyx	{ top:347px; left:414px; }
+
+			#markZhorus2		{ top:785px; left:170px; font-size: 1.5em; color: #eee; }
+			#markGuyFortin		{ top:293px; left:332px; font-size: 1.7em; color: #fff; }
+			#markFrankFortier	{ top:405px; left:495px; font-size: 1.5em; color: #fff; }
+			#markPierreTalbot	{ top:206px; left:345px; font-size: 1.3em; }
+			#markMarcBruneau	{ top:518px; left:488px; font-size: 1.3em; }
+			#markFreresMarcotte	{ top:422px; left:234px; font-size: 1.3em; width:110px; }
+			#markRoiNyephee		{ top:480px; left:628px; }
+			#markDruidesCristal	{ top:116px; left:388px; width:130px; }
+			#markDruidesZvangahr	{ top:340px; left:136px; width:130px; }
+			#markAstaroth		{ top:690px; left:238px; font-size: 1.2em; }
+			#markZeelonTale		{ top: 39px; left: 69px; font-size: 1.3em; color: #eee; }
+			#markShereldak		{ top:107px; left:608px; }
+			#markOrdreEreldim	{ top:218px; left: 89px; width:130px; }
+			#markBaalZeboul		{ top:150px; left:760px; font-size: 1.4em; color: #eee; }
+
+
+/* 4.3. Geography
+   ############################################### */
+
+	#map {
+		position:	relative;
+		width:		800px;
+		margin:		2em auto 0;
+		background:	no-repeat 0 0;
+		}
+		html.js #map.wrap {
+			height:	1037px;
+		}
+		#map .tome {
+			height:	988px;
+			width:	768px;
+			padding:27px 12px 22px 20px;
+		}
+		#map img, #tree img { display:block; }
+
+		#map #tome-1 { background: url(../images/tome-1/nereland_underlay.png); }
+		#map #tome-2 { background: url(../images/tome-2/nereland_underlay.png); }
+		#map #tome-3 { background: url(../images/tome-2/nereland_underlay.png); }
+
+		.map-points,
+		.character-points {
+			position:absolute;
+			top:0;
+			left:0;
+			}
+			.map-points .mark {
+				opacity:	0;
+				filter:		alpha(opacity=0);
+				display:	none;
+				z-index:	100;
+				cursor:		default;
+				position:	absolute;
+				height:		16px;
+				width:		16px;
+				background:	url(../images/mark.png) no-repeat 50% 50%;
+				}
+
+				html.js .map-points .mark {
+					cursor: pointer;
+				}
+
+				html.js .map-points .mark.dot:focus,
+				html.js .map-points .mark.dot:hover {
+					opacity:	1;
+					filter:		alpha(opacity=100);
+				}
+
+			.map-points .mark.tome-0,
+			body.tome-1 .map-points .mark.tome-1,
+			body.tome-2 .map-points .mark.tome-2,
+			body.tome-3 .map-points .mark.tome-3 { display:block; }
+
+			#markAuthor	{ top:1000px; left:650px; height:30px; width:110px; }
+
+			/* Cities */
+			#markAnkhoril		{ top:553px; left:248px; }
+			#markAngstel		{ top:470px; left:159px; }
+			#markArak		{ top:740px; left:714px; }
+			#markAtemon		{ top:953px; left:436px; }
+			#markAullingst		{ top:180px; left: 76px; }
+			#markCedres		{ top:843px; left:252px; }
+			#markChateauVlad	{ top:428px; left:420px; }
+			#markCiteRavine		{ top:580px; left:142px; }
+			#markCiteTalji		{ top:252px; left:200px; z-index:2; }
+			#markCiteThorne		{ top:126px; left:190px; z-index:2; }
+			#markCiteTlemekk	{ top:112px; left:308px; }
+			#markCiteTolgane	{ top:522px; left:706px; }
+			#markCiteRuines		{ top:156px; left:144px; }
+			#markCiteZeelonTale	{ top:522px; left:155px; }
+			#markDeltaNord		{ top:904px; left:217px; }
+			#markDeltaOuest		{ top:918px; left:158px; }
+			#markDeltaSud		{ top:944px; left:194px; }
+			#markDelthie		{ top:304px; left:135px; }
+			#markDeon		{ top:481px; left:309px; }
+			#markGothnard		{ top:156px; left:727px; }
+			#markHynt		{ top:664px; left:191px; }
+			#markHelrek		{ top:341px; left:316px; }
+			#markIggenbass		{ top:629px; left:570px; }
+			#markIlstunn		{ top:299px; left:328px; }
+			#markKegbis		{ top:527px; left:569px; }
+			#markKlebber		{ top:559px; left:214px; }
+			#markKraddlor		{ top:347px; left:432px; }
+			#markNemstyl		{ top:578px; left:168px; }
+			#markNerebil		{ top:418px; left:453px; }
+			#markNessel		{ top:395px; left:473px; }
+			#markNinkleton		{ top:203px; left:586px; }
+			#markOrfelyne		{ top:385px; left:213px; }
+			#markOrogoth		{ top:199px; left:513px; }
+			#markPalaisDesIrmes	{ top:488px; left:481px; }
+			#markPointeChamps	{ top:865px; left:596px; }
+			#markPointeNoire	{ top:228px; left:340px; }
+			#markPortEmmerel	{ top:265px; left:380px; }
+			#markPortSyridge	{ top:263px; left:353px; }
+			#markSalameh		{ top:219px; left:699px; }
+			#markSinkarah		{ top:249px; left:622px; }
+			#markSyruth		{ top:844px; left:165px; }
+			#markTilmash		{ top:691px; left:622px; }
+			#markTourMeltdar	{ top:336px; left:521px; }
+			#markUlnes		{ top:876px; left:204px; }
+			#markVordres		{ top:822px; left:211px; }
+
+			/* Territories */
+			#markCollineAuCypres	{ top:402px; left:659px; height:10px; width: 5px; }
+			#markContinentPerdu	{ top:699px; left:313px; height: 7px; width:87px; }
+			#markDesertsEst		{ top:390px; left:750px; height:60px; width:40px; }
+			#markGrandLacSalameh	{ top:170px; left:743px; height:28px; width:43px; }
+			#markGrandeMerSud	{ top:732px; left:255px; height:34px; width:81px; }
+			#markGrandeMerSyridge	{ top:207px; left:373px; height:30px; width:64px; }
+			#markIsleHeuf		{ top:872px; left:690px; height:18px; width:32px; }
+			#markLacEmbrume		{ top:366px; left:616px; height:27px; width:46px; }
+			#markLacHelrek		{ top:307px; left:362px; height:28px; width:34px; }
+			#markLacOise		{ top:828px; left:383px; height:29px; width:34px; }
+			#markMaelstromNeptune	{ top:148px; left:350px; height:30px; width:73px; }
+			#markMaraisGlost	{ top:230px; left:152px; height:55px; width:86px; z-index:1; }
+			#markMaraisNord		{ top:433px; left:315px; height:18px; width:30px; }
+			#markMerOsique		{ top:820px; left:608px; height:16px; width:91px; }
+			#markMontNord		{ top: 97px; left:180px; height:40px; width:70px; z-index:1; }
+			#markMontYakkthi	{ top:233px; left:668px; height:18px; width:35px; }
+			#markMontagnesFeu	{ top:886px; left:443px; height:18px; width:52px; }
+			#markMontsFerreux	{ top:530px; left:358px; height: 9px; width:70px; }
+			#markMontsSmoglia	{ top:242px; left: 30px; height:42px; width:122px; }
+			#markOceanNord		{ top:105px; left:469px; height:42px; width:72px; }
+			#markPlainesMortes	{ top:296px; left: 54px; height: 9px; width:73px; }
+			#markPetiteMerSyridge	{ top:407px; left:242px; height:30px; width:62px; }
+			#markPicArgente		{ top:972px; left:350px; height:11px; width:54px; }
+			#markPlainesMenthyle	{ top:338px; left:627px; height: 9px; width:95px; }
+			#markPlainesVerprey	{ top: 69px; left:344px; height:11px; width:93px; }
+			#markPlateauOlgoth	{ top:436px; left:603px; height: 9px; width:93px; }
+			#markPointeMort		{ top:917px; left: 64px; height:20px; width:43px; }
+			#markTaniereDuVent	{ top:122px; left: 35px; height:14px; width:98px; }
+			#markRiviereCristal	{ top:375px; left:395px; height:22px; width:89px; }
+
+
+/* 4.4. Popups
+   ############################################### */
+
+	#point-popups {
+		position:	absolute;
+		top:		0;
+		left:		0;
+	}
+
+	.popupPlace,
+	#invitation {
+		padding:	2px;
+		border:		2px solid #000;
+		background:	#F50009;
+		color:		#000;
+
+		-webkit-border-radius:	8px;
+		   -moz-border-radius:	8px;
+		        border-radius:	8px;
+
+		-webkit-box-shadow:	0 1px 3px #000;
+		   -moz-box-shadow:	0 1px 3px #000;
+		        box-shadow:	0 1px 3px #000;
+
+		}
+		.popupPlace {
+			z-index:	200;
+			display:	none;
+			position:	fixed;
+			top:		-50px;
+			left:		10px;
+			width:		380px;
+		}
+
+		.popup h3,
+		.popupPlace h3 {
+			margin:		10px 10px 5px;
+			font-size:	1.8em;
+		}
+
+		.popup h5,
+		.popupPlace h5 {
+			color:		#000;
+			font-size:	3.6em;
+			}
+
+		.popupPlace .inner,
+		#invitation .inner {
+			border:		2px solid #000;
+			background:	#FCDF88 url(../images/popup-bg.jpg);
+
+			-webkit-border-radius:	4px;
+			   -moz-border-radius:	4px;
+			        border-radius:	4px;
+		}
+
+		.popupPlace p,
+		#invitation p {
+			font-size: 1.2em;
+			margin: 0 5px 0 10px;
+			padding-bottom: 12px;
+		}
+
+		/* bottom:-9; left:+9;
+		#popupAullingst		{ bottom:-171px; left:85px; }
+		#popupOrfelyne		{ bottom:-376px; left:220px; }
+		#popupPalaisDesIrmes	{ bottom:-479px; left:488px; }
+		#popupCollineAuCypres	{ bottom:-393px; left:659px; }
+		#popupPlateauDOlgoth	{ bottom:-432px; left:650px; }
+		#popupLacEmbrume	{ bottom:-371px; left:639px; }
+		#popupGrandeMerDuSud	{ bottom:-742px; left:299px; }
+		#popupContinentPerdu	{ bottom:-703px; left:357px; }*/
+
+
+
+/* ###############################################
+   6. Typography
+   ############################################### */
+
+	#intro p:first-child:first-letter,
+	    .feature div + p:first-letter {
+		float:		left;
+		margin:		0.1em 0.05em 0 0;
+		font-size:	3.6em;
+		font-family:	Palatino;
+		line-height:	0.75em;
+	}
+
+	/*
+	 * Safari <= 4 and Chrome <= 3 ignores
+	 * text-transform when applied via
+	 * the :first-line pseudo element.
+	 */
+	#intro p:first-child:first-line,
+	    .feature div + p:first-line {
+		color:		#000;
+		text-transform:	uppercase;
+	}

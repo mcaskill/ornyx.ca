@@ -141,7 +141,7 @@
 				<div id="popupAuthor" data-id="Author" class="popupPlace">
 					<div class="inner">
 						<h3>Un MERCI majuscule</h3>
-						<p>à mon ami Sylvain Cloutier pour le dessin de la carte du royaume de Néréland...</p>
+						<p>à mon ami Sylvain Cloutier pour le dessin de la carte du royaume de Néréland…</p>
 					</div>
 				</div>
 
@@ -383,7 +383,7 @@
 				<div id="popupOrfelyne" data-id="Orfelyne" class="popupPlace">
 					<div class="inner">
 						<h3>Orfélyne</h3>
-						<p>Cité la plus vaste et la plus peuplée de Néréland. Pour des raisons qui demeurent inconnues, les sortilèges et enchantements n’y fonctionnent pas. Elle est entourée de hautes murailles habitées, constituant en elles-mêmes de véritables villes. Ses gratte-ciels sont si hauts qu’ils masquent la vue du ciel aux citoyens. Des rues et trottoirs circulent à toutes hauteurs à travers la ville, qui représente un monument colossal. On y trouve de tout : marchandises, animaux, créatures provenant de tous les recoins de l’Univers, Éternels, Mortels clandestins, savants, sorciers, il ne vous reste qu’à chercher. Habituellement, ce sont les ennuis qui vous trouvent...</p>
+						<p>Cité la plus vaste et la plus peuplée de Néréland. Pour des raisons qui demeurent inconnues, les sortilèges et enchantements n’y fonctionnent pas. Elle est entourée de hautes murailles habitées, constituant en elles-mêmes de véritables villes. Ses gratte-ciels sont si hauts qu’ils masquent la vue du ciel aux citoyens. Des rues et trottoirs circulent à toutes hauteurs à travers la ville, qui représente un monument colossal. On y trouve de tout : marchandises, animaux, créatures provenant de tous les recoins de l’Univers, Éternels, Mortels clandestins, savants, sorciers, il ne vous reste qu’à chercher. Habituellement, ce sont les ennuis qui vous trouvent…</p>
 					</div>
 				</div>
 				<div id="popupOrogoth" data-id="Orogoth" class="popupPlace">

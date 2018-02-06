@@ -91,7 +91,7 @@
 				<div id="popupFrankTetreault" class="popupPlace">
 					<div class="inner">
 						<h3>Frank Tétreault</h3>
-						<p>La brute de l’histoire est une vedette du football, du moins le croit-il. Trop sûr de lui, il se pense populaire à l’école parce qu’il peut démolir qui il veut sur simple provocation, sans jamais en subir les conséquences. Même le personnel redoute d’avoir à l’affronter, alors il est assez libre de ses faits et gestes et il ne craint personne. Mais il va découvrir qu’il a aussi ses faiblesses...</p>
+						<p>La brute de l’histoire est une vedette du football, du moins le croit-il. Trop sûr de lui, il se pense populaire à l’école parce qu’il peut démolir qui il veut sur simple provocation, sans jamais en subir les conséquences. Même le personnel redoute d’avoir à l’affronter, alors il est assez libre de ses faits et gestes et il ne craint personne. Mais il va découvrir qu’il a aussi ses faiblesses…</p>
 					</div>
 				</div>
 				<div id="popupStephaneLambert" class="popupPlace">

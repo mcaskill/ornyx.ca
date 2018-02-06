@@ -135,6 +135,9 @@ var Core = (function($, w, d) {
 				    },
 				    offset = $$.cover.position();
 
+				if ( $$.popup.length === 0 )
+					return;
+
 				$$.popup.css({ 'top' : offset.top-10, 'left' : offset.left-10 })
 
 				$$.cover.click(function(e) {

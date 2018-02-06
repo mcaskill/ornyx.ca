@@ -1,7 +1,7 @@
 			<div id="purchase" class="section">
 				<div class="span-2">
 					<h4>Achetez le livre</h4>
-					<p>En vente chez tous les bons libraires, et quelques mauvais aussi...</p>
+					<p>En vente chez tous les bons libraires, et quelques mauvais aussi…</p>
 					<p>Plus de 200 points de vente au Québec!</p>
 				</div>
 				<div class="col-3">

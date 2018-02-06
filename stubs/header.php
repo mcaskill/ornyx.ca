@@ -6,7 +6,7 @@
 
 		<title><?php if (!empty($page)) echo $page.' — '; ?>L'Ordre des Ornyx</title>
 
-		<meta name="description" content="Préparez-vous à vivre une aventure fantastique à l’intrigue merveilleuse..." />
+		<meta name="description" content="Préparez-vous à vivre une aventure fantastique à l’intrigue merveilleuse…" />
 		<meta name="keywords"	 content="roman, novel, jeunesse, aventure, fantaisie, intrigue, trilogie, trilogy, ornyx, soulieres" />
 		<meta name="author"	 content="Patrick Loranger" />
 
@@ -34,6 +34,6 @@
 				<h1><a rel="index" href="/">L'Ordre des Ornyx</a></h1>
 				<p id="byline">Un roman par Patrick Loranger</p>
 <?php if ($section == 'accueil') { ?>
-				<p id="tagline">Préparez-vous à vivre une aventure fantastique à l’intrigue merveilleuse...</p>
+				<p id="tagline">Préparez-vous à vivre une aventure fantastique à l’intrigue merveilleuse…</p>
 <?php } ?>
 			</div>

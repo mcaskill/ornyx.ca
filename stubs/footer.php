@@ -24,7 +24,7 @@
 				<p>#60 — L'Ordre des Ornyx : <a href="http://soulieresediteur.com/details.php?isbn=978-2-89607-121-0">L'éveil</a> — ISBN 978-2-89607-121-0</p>
 				<p>#65 — L'Ordre des Ornyx : <a href="http://soulieresediteur.com/details.php?isbn=978-2-89607-130-2">Les origines</a> — ISBN 978-2-89607-130-2</p>
 				<p>#69 — L'Ordre des Ornyx : <a href="http://soulieresediteur.com/details.php?isbn=978-2-89607-139-5">La confrontation</a> — ISBN 978-2-89607-139-5</p>
-				<p class="copyright">Contenu © 2010–2011 Patrick Loranger, Sybiline et Soulières Éditeur. Tous droits réservés.</p>
+				<p class="copyright">Contenu © 2010–<?php echo date('Y'); ?> Patrick Loranger, Sybiline, et Soulières Éditeur. Tous droits réservés.</p>
 			</div>
 
 		</div>

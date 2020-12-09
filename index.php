@@ -1,11 +1,11 @@
 <?php
 
 if (strstr($_SERVER['HTTP_HOST'], 'ornyx.ca')) {
-	define ('ROOT', 'http://ornyx.ca');
+	define('ROOT', 'http://ornyx.ca');
 } elseif (strstr($_SERVER['HTTP_HOST'], 'dev.ornyx.ca')) {
-	define ('ROOT', 'http://dev.ornyx.ca');
+	define('ROOT', 'http://dev.ornyx.ca');
 } else {
-	define ('ROOT', 'http://ornyx.test');
+	define('ROOT', 'https://ornyx.test');
 }
 
 # Split the path by '/'
